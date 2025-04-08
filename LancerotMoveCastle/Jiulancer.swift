@@ -10,6 +10,7 @@ import SwiftUI
 import Lottie
 
 struct Jiulancer: View {
+    @Environment(\.dismiss) var dismiss
     @State var shiuw: Bool = false
     var body: some View {
         ZStack {
@@ -33,12 +34,18 @@ struct Jiulancer: View {
             
             WKWebViewRepresentable(url: URL(string: "https://freepolicyourgheim.xyz/red/game/lancerot/")!)
             {
+                vibritiks(catDeTare: .rigid)
                 shiuw = false
             }
             .edgesIgnoringSafeArea(.all)
             
         }
-        .asfeasnr()
+        .navigationBarBackButtonHidden()
+        .navigationBarItems(leading: Button(action: {
+            self.dismiss()
+        }, label: {
+            Image("backImage")
+        }))
     }
 }
 
